@@ -86,6 +86,11 @@
         show selection if it was below the old AND the
         first row of content from the selection.
  
+ 
+ 
+ Good notes on paging a scrollview with page sizes different from its physical size.
+ http://stackoverflow.com/questions/1220354/uiscrollview-horizontal-paging-like-mobile-safari-tabs/1220605#1220605
+ 
  */
 
 @implementation ViewController
