@@ -63,6 +63,31 @@
 
 @end
 
+/*
+ 
+ The Requirements
+ 
+ 1. three scrollViews: one horizontal, two independent vertical.
+ 2. the horizontal needs to act like a searchbar, hiding above the fold when pushed up.
+ 3. each vertical scrollView needs to be capable of pushing the the horizontal above the fold before scrolling
+    - If both verticals have a {0,0} offset and you push up on either
+ 3. each vertical when reaching the top of its content needs to pull the horizontal back down.
+    - If both verticals have a {0,0} offset and you pull either further
+ 
+ 
+ 
+ The less fancy alternative
+ 
+ Have a single huge scrollView.
+ There is a horizontal scrollView as a header
+ The left nav is no longer independently scrollable.
+    - This limits the ability of the left nav to extend
+        beyond the height of the view because you couldn't
+        show selection if it was below the old AND the
+        first row of content from the selection.
+ 
+ */
+
 @implementation ViewController
 
 - (void)viewDidLoad
