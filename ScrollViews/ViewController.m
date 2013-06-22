@@ -109,10 +109,10 @@
     [self.view addSubview:hackView];
     
     superScrollView = [[UIScrollView alloc] initWithFrame:hackView.bounds];//CGRectMake(0.0, 128.0, CGRectGetWidth(self.view.bounds), headerHeight)];//UIEdgeInsetsInsetRect(self.view.bounds, UIEdgeInsetsMake(128.0, 0.0, 0.0, 0.0))];
-    [superScrollView setContentSize:CGSizeMake(CGRectGetWidth(superScrollView.frame), CGRectGetHeight(hackView.frame) + headerHeight)];
+    [superScrollView setContentSize:CGSizeMake(CGRectGetWidth(superScrollView.frame), CGRectGetHeight(hackView.frame) * 5 + headerHeight)];
 //    [superScrollView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"128-189.jpg"]]];
     [superScrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
-    [superScrollView setPagingEnabled:YES];
+//    [superScrollView setPagingEnabled:YES];
 //    [superScrollView setScrollEnabled:NO];
     [superScrollView setClipsToBounds:NO];
     [superScrollView setDelegate:self];
@@ -140,6 +140,9 @@
     [rightScrollView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin];
     [rightScrollView setDelegate:self];
     [superScrollView addSubview:rightScrollView];
+    
+    [rightScrollView setScrollEnabled:NO];
+    [leftScrollView setScrollEnabled:NO];
 }
 
 #pragma mark - Sub ScrollView Logic
@@ -169,7 +172,13 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == superScrollView) {
+        CGFloat offset = scrollView.contentOffset.y;
         
+        CGFloat limit = CGRectGetMaxY(topScrollView.frame);
+        if (offset >= limit) {
+            [leftScrollView setTransform:CGAffineTransformMakeTranslation(0.0, offset - limit)];
+        }
+    
     } else if (scrollView == topScrollView) {
         
     } else if (scrollView == leftScrollView || scrollView == rightScrollView) {
@@ -193,6 +202,10 @@
             // Don't scroll subScrollView
             [scrollView setContentOffset:CGPointZero];
         } else if (offset <= 0.0) {
+            if (superOffset < 0.0) {
+                offset = offset * 0.75;
+            }
+            
             // Scroll superScrollView by content offset
             [superScrollView setContentOffset:CGPointMake(superScrollView.contentOffset.x, superScrollView.contentOffset.y + offset)];
             
