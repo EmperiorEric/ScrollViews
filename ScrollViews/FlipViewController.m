@@ -7,9 +7,9 @@
 //
 
 #import "FlipViewController.h"
-#import <QuartzCore/QuartzCore.h>
+#import "MRPFlipView.h"
 
-@interface FlipViewController () <UIScrollViewDelegate>
+@interface FlipViewController () <MRPFlipViewDelegate>
 {
     UIScrollView *theScrollView;
     
@@ -28,46 +28,52 @@
     
     [self.view setBackgroundColor:[UIColor colorWithWhite:0.99 alpha:1.0]];
     
-    theScrollView = [[UIScrollView alloc] initWithFrame:CGRectInset(self.view.bounds, 160.0, 320.0)];
-    [theScrollView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin];
+    CGFloat width = CGRectGetWidth(self.view.bounds) / 2.0;
+    CGFloat height = CGRectGetHeight(self.view.bounds) / 2.0;
     
-    [theScrollView setDelegate:self];
+    MRPFlipView *flipViewA = [[MRPFlipView alloc] initWithFrame:CGRectMake(0.0, 0.0, width, height)];
+    [flipViewA setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+    [self.view addSubview:flipViewA];
     
-    [theScrollView setClipsToBounds:NO];
-    [theScrollView setShowsHorizontalScrollIndicator:NO];
+    MRPFlipView *flipViewB = [[MRPFlipView alloc] initWithFrame:CGRectMake(width, 0.0, width, height)];
+    [flipViewB setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+    [self.view addSubview:flipViewB];
     
-    [theScrollView setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1.0]];
+    MRPFlipView *flipViewC = [[MRPFlipView alloc] initWithFrame:CGRectMake(0.0, height, width, height)];
+    [flipViewC setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+    [self.view addSubview:flipViewC];
     
-    [theScrollView setPagingEnabled:YES];
+    MRPFlipView *flipViewD = [[MRPFlipView alloc] initWithFrame:CGRectMake(width, height, width, height)];
+    [flipViewD setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+    [self.view addSubview:flipViewD];
     
-    [theScrollView setContentSize:CGSizeMake(CGRectGetWidth(theScrollView.frame) * 2.0, CGRectGetHeight(theScrollView.frame))];
     
-    [self.view addSubview:theScrollView];
-
-    view = [[UIView alloc] initWithFrame:CGRectInset(theScrollView.bounds, 4.0, 4.0)];
-    [theScrollView addSubview:view];
-    
-    subView = [[UIView alloc] initWithFrame:view.bounds];
-    [subView.layer setCornerRadius:4.0];
-    [subView setBackgroundColor:[[UIColor redColor] colorWithAlphaComponent:0.35]];
-    [view addSubview:subView];
-    
+    for (MRPFlipView *flipView in @[flipViewA, flipViewB, flipViewC, flipViewD]) {
+        flipView.delegate = self;
+        
+        [flipView setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1.0]];
+        
+        [flipView.frontView setBackgroundColor:[[UIColor redColor] colorWithAlphaComponent:0.35]];
+        [flipView.backView setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.35]];
+        
+        [flipView.frontView setFrame:CGRectInset(flipView.frontView.superview.bounds, 4.0, 4.0)];
+        [flipView.backView setFrame:CGRectInset(flipView.backView.superview.bounds, 4.0, 4.0)];
+        
+        flipView.frontView.layer.cornerRadius = 4.0;
+        flipView.backView.layer.cornerRadius = 4.0;
+    }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+#pragma mark - RPFlipView Delegate
+
+- (void)flipViewWillBeginDragging:(MRPFlipView *)flipView
 {
-    [view setTransform:CGAffineTransformMakeTranslation(scrollView.contentOffset.x, 0.0)];
+    [flipView.superview bringSubviewToFront:flipView];
+}
+
+- (void)flipView:(MRPFlipView *)flipView didFlip:(BOOL)flipped
+{
     
-    CATransform3D transform = CATransform3DIdentity;
-    transform.m34 = 1.0 / 800.0;
-    transform = CATransform3DRotate(transform, M_PI * (scrollView.contentOffset.x/CGRectGetWidth(scrollView.frame)), 0.0, 1.0, 0.0);
-    [subView.layer setTransform:transform];
-    
-    if (scrollView.contentOffset.x >= (CGRectGetWidth(scrollView.frame) / 2.0)) {
-        [subView setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.35]];
-    } else {
-        [subView setBackgroundColor:[[UIColor redColor] colorWithAlphaComponent:0.35]];
-    }
 }
 
 @end
