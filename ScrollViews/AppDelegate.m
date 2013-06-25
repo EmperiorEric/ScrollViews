@@ -12,13 +12,27 @@
 #import "ViewController.h"
 #import "OptionOneViewController.h"
 
-/* Option One - The Easiest
+/* 
  
- Option One represents a simple scrollView with stationary subviews.
+Option One - The Easiest
+ 
+ Option One represents a simple scrollView with mostly stationary subviews.
  - A large header at the top
  - A stationary view on the left (stationary after header is hidden)
  - A toolbar area for search bar and filters
  - The key content area that would be filled with cells
+
+Option Two represents one scrollView that covers the screen, with a second layer on top.
+ - A large scrollView
+    - A stationary header
+    - A stationary toolbar
+    - content area filled with cells
+ - A small scrollview layered above
+    - Menu
+ 
+ Option Two represents one 
+ 
+ 
  
  */
 

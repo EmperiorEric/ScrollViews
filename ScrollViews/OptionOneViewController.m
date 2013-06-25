@@ -44,7 +44,7 @@
     [header setText:@"Header"];
     [scrollView addSubview:header];
     
-    menu = [[ColorLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetMaxY(header.frame) + padding, 256.0 - (padding * 2.0), 480.0)];
+    menu = [[ColorLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetMaxY(header.frame) + padding, 256.0 - (padding * 2.0), 604.0 - (padding * 2.0))];
     [menu setBackgroundColor:[UIColor greenColor]];
     [menu setText:@"Menu"];
     [scrollView addSubview:menu];
@@ -62,6 +62,8 @@
     
 }
 
+#pragma mark - UIScrollView Delegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat threshold = CGRectGetMaxY(header.frame);
@@ -72,6 +74,24 @@
     } else {
         [menu setTransform:CGAffineTransformIdentity];
     }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    CGFloat threshold = CGRectGetMaxY(header.frame);
+    
+    if (targetContentOffset->y < (threshold / 2.0)) {
+        targetContentOffset->y = 0.0;
+    } else if (targetContentOffset->y < threshold) {
+        targetContentOffset->y = threshold;
+    }
+}
+
+#pragma mark - Orientation Lock
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 @end
