@@ -9,7 +9,21 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
-#import "FlipViewController.h"
+#import "OptionOneViewController.h"
+
+/* Option One - The Easiest
+ 
+ Option One represents a simple scrollView with stationary subviews.
+ - A large header at the top
+ - A stationary view on the left (stationary after header is hidden)
+ - A toolbar area for search bar and filters
+ - The key content area that would be filled with cells
+ 
+ */
+
+
+
+#define OPTION 1
 
 @implementation AppDelegate
 
@@ -17,9 +31,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-        
-//    self.window.rootViewController = [[ViewController alloc] init];
-    self.window.rootViewController = [[FlipViewController alloc] init];
+   
+    
+#if OPTION == 1
+    self.window.rootViewController = [[OptionOneViewController alloc] init];
+#elif OPTION == 2
+    self.window.rootViewController = [[OptionTwoViewController alloc] init];
+#else
+    self.window.rootViewController = [[ViewController alloc] init];
+#endif
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
