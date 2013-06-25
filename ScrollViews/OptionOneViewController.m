@@ -33,13 +33,13 @@
     
     CGFloat padding = 8.0;
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 188.0, 1024.0, 560.0)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 144.0, 1024.0, 604.0)];
     [scrollView setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
     [scrollView setContentSize:CGSizeMake(CGRectGetWidth(scrollView.frame), 2048.0)];
     [scrollView setDelegate:self];
     [self.view addSubview:scrollView];
     
-    header = [[ColorLabel alloc] initWithFrame:CGRectMake(padding, padding, 1024.0 - (padding * 2.0), 144.0)];
+    header = [[ColorLabel alloc] initWithFrame:CGRectMake(padding, padding, 1024.0 - (padding * 2.0), 188.0)];
     [header setBackgroundColor:[UIColor orangeColor]];
     [header setText:@"Header"];
     [scrollView addSubview:header];
@@ -69,6 +69,8 @@
     
     if (offset > threshold) {
         [menu setTransform:CGAffineTransformMakeTranslation(0.0, offset - threshold)];
+    } else {
+        [menu setTransform:CGAffineTransformIdentity];
     }
 }
 

@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF61FEC317727AEF00D83C09 /* 128-190.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF61FEC017727AEF00D83C09 /* 128-190.jpg */; };
-		EF61FEC417727AEF00D83C09 /* 128-189.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF61FEC117727AEF00D83C09 /* 128-189.jpg */; };
-		EF61FEC517727AEF00D83C09 /* 128-191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF61FEC217727AEF00D83C09 /* 128-191.jpg */; };
 		EF652FF617776909002358E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF652FF517776909002358E6 /* QuartzCore.framework */; };
 		EF6530151779223B002358E6 /* OptionOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6530141779223B002358E6 /* OptionOneViewController.m */; };
 		EF65301817792502002358E6 /* ColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF65301717792502002358E6 /* ColorLabel.m */; };
+		EF65301B17792D4D002358E6 /* OptionTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF65301A17792D4D002358E6 /* OptionTwoViewController.m */; };
 		EF8C0527175EADA900147EB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8C0526175EADA900147EB4 /* UIKit.framework */; };
 		EF8C0529175EADA900147EB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8C0528175EADA900147EB4 /* Foundation.framework */; };
 		EF8C052B175EADA900147EB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8C052A175EADA900147EB4 /* CoreGraphics.framework */; };
@@ -23,19 +21,16 @@
 		EF8C053B175EADA900147EB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8C053A175EADA900147EB4 /* Default@2x.png */; };
 		EF8C053D175EADA900147EB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8C053C175EADA900147EB4 /* Default-568h@2x.png */; };
 		EF8C0540175EADA900147EB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8C053F175EADA900147EB4 /* ViewController.m */; };
-		EF8C0543175EADA900147EB4 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8C0541175EADA900147EB4 /* ViewController_iPhone.xib */; };
-		EF8C0546175EADA900147EB4 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8C0544175EADA900147EB4 /* ViewController_iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EF61FEC017727AEF00D83C09 /* 128-190.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "128-190.jpg"; sourceTree = "<group>"; };
-		EF61FEC117727AEF00D83C09 /* 128-189.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "128-189.jpg"; sourceTree = "<group>"; };
-		EF61FEC217727AEF00D83C09 /* 128-191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "128-191.jpg"; sourceTree = "<group>"; };
 		EF652FF517776909002358E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EF6530131779223B002358E6 /* OptionOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionOneViewController.h; sourceTree = "<group>"; };
 		EF6530141779223B002358E6 /* OptionOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionOneViewController.m; sourceTree = "<group>"; };
 		EF65301617792502002358E6 /* ColorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorLabel.h; sourceTree = "<group>"; };
 		EF65301717792502002358E6 /* ColorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorLabel.m; sourceTree = "<group>"; };
+		EF65301917792D4D002358E6 /* OptionTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionTwoViewController.h; sourceTree = "<group>"; };
+		EF65301A17792D4D002358E6 /* OptionTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionTwoViewController.m; sourceTree = "<group>"; };
 		EF8C0523175EADA900147EB4 /* ScrollViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8C0526175EADA900147EB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EF8C0528175EADA900147EB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,8 +46,6 @@
 		EF8C053C175EADA900147EB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EF8C053E175EADA900147EB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EF8C053F175EADA900147EB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EF8C0542175EADA900147EB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		EF8C0545175EADA900147EB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +100,10 @@
 				EF8C053F175EADA900147EB4 /* ViewController.m */,
 				EF6530131779223B002358E6 /* OptionOneViewController.h */,
 				EF6530141779223B002358E6 /* OptionOneViewController.m */,
+				EF65301917792D4D002358E6 /* OptionTwoViewController.h */,
+				EF65301A17792D4D002358E6 /* OptionTwoViewController.m */,
 				EF65301617792502002358E6 /* ColorLabel.h */,
 				EF65301717792502002358E6 /* ColorLabel.m */,
-				EF61FEC017727AEF00D83C09 /* 128-190.jpg */,
-				EF61FEC117727AEF00D83C09 /* 128-189.jpg */,
-				EF61FEC217727AEF00D83C09 /* 128-191.jpg */,
-				EF8C0541175EADA900147EB4 /* ViewController_iPhone.xib */,
-				EF8C0544175EADA900147EB4 /* ViewController_iPad.xib */,
 				EF8C052D175EADA900147EB4 /* Supporting Files */,
 			);
 			path = ScrollViews;
@@ -188,11 +178,6 @@
 				EF8C0539175EADA900147EB4 /* Default.png in Resources */,
 				EF8C053B175EADA900147EB4 /* Default@2x.png in Resources */,
 				EF8C053D175EADA900147EB4 /* Default-568h@2x.png in Resources */,
-				EF8C0543175EADA900147EB4 /* ViewController_iPhone.xib in Resources */,
-				EF8C0546175EADA900147EB4 /* ViewController_iPad.xib in Resources */,
-				EF61FEC317727AEF00D83C09 /* 128-190.jpg in Resources */,
-				EF61FEC417727AEF00D83C09 /* 128-189.jpg in Resources */,
-				EF61FEC517727AEF00D83C09 /* 128-191.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +193,7 @@
 				EF8C0540175EADA900147EB4 /* ViewController.m in Sources */,
 				EF6530151779223B002358E6 /* OptionOneViewController.m in Sources */,
 				EF65301817792502002358E6 /* ColorLabel.m in Sources */,
+				EF65301B17792D4D002358E6 /* OptionTwoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,22 +206,6 @@
 				EF8C0530175EADA900147EB4 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		EF8C0541175EADA900147EB4 /* ViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF8C0542175EADA900147EB4 /* en */,
-			);
-			name = ViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		EF8C0544175EADA900147EB4 /* ViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF8C0545175EADA900147EB4 /* en */,
-			);
-			name = ViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
